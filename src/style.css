@@ -13,3 +13,12 @@ body{background-color: rgb(235, 235, 243);
 
 
 }
+.search-form-input {
+background-color: white;
+border: none;
+border-radius: 6px;
+width: 80%;
+padding: 20px;
+
+
+}
