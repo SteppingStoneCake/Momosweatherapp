@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/style.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Delius&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <title>Weather App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Delius&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <title>Weather App</title>
 </head>
 <body>
-    <div class="weatherapp">
+  <div class="weatherapp">
     <header>
-<form class="search-form">
-    <input type="search" placeholder="Type  in a city" required class="search-form-input"/>
-    <input type="submit" value="Search" class="search-form-button"/>
-</form> 
+      <form class="search-form">
+        <input type="search" placeholder="Type in a city" required class="search-form-input" aria-label="Search for a city" />
+        <input type="submit" value="Search" class="search-form-button" />
+      </form>
     </header>
-    
 
     <main>
-        <div class="weather-app-data";>
-
-   <h1 class="weather-app-city"> San Antonio</h1>
-    
-   <p class="weather-app-details">
-    Thursday 12:03, sunny
-   </br>
-   Humidity: <strong>63%</strong>, Wind: <strong>4 mph</strong>
-   </p>
-        </div>
-        <div class="weather-app-temperature">
-   ☀️ 93 °F
-   </div>
+      <div class="weather-app-data">
+        <h1 class="weather-app-city">San Antonio</h1>
+        <p class="weather-app-details">
+          Thursday 12:03, sunny<br>
+          Humidity: <strong>63%</strong>, Wind: <strong>4 mph</strong>
+        </p>
+        <div class="weather-app-icon">☀️</div>
+        <div class="weather-app-temperature-value">93 °F</div>
+      </div>
     </main>
 
-<footer>
-    This project was coded by <a href="https://github.com/SteppingStoneCake"> Monica Privett </a> hosted <a href="https://github.com/SteppingStoneCake?tab=repositories"> on GitHub</a> and website hosted on <a href="https://weatherapp251116.netlify.app/"> netlify</a>
-</footer>
-</div>
+    <footer>
+      This project was coded by 
+      <a href="https://github.com/SteppingStoneCake">Monica Privett</a>, 
+      hosted on 
+      <a href="https://github.com/SteppingStoneCake?tab=repositories">GitHub</a> and 
+      deployed to 
+      <a href="https://weatherapp251116.netlify.app/">Netlify</a>.
+    </footer>
+  </div>
 </body>
 </html>
