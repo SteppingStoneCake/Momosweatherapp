@@ -1,20 +1,10 @@
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-temperature");
-  let temperature = Math.round(response.data.temperature.current);
   let cityElement = document.querySelector("#current-city");
+
+  let temperature = Math.round(response.data.temperature.current);
+  temperatureElement.innerHTML = `${temperature}°C`;
   cityElement.innerHTML = response.data.city;
-  temperatureElement.innerHTML = temperature;
-}
-
-function search(event) {
-  event.preventDefault();
-  let searchInputElement = document.querySelector("#search-input");
-  let city = searchInputElement.value;
-
-  let apiKey = "b8e4c9bea5b1fcaco0bf15019t432341";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(displayTemperature);
 }
 
 function formatDate(date) {
@@ -44,10 +34,26 @@ function formatDate(date) {
   return `${formattedDay} ${hours}:${minutes}`;
 }
 
-let searchForm = document.querySelector("#search-form");
+function search(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#city-search").value;
+
+  let apiKey = "b8e4c9bea5b1fcaco0bf15019t432341";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityInput}&key=${apiKey}&units=metric`;
+
+  axios
+    .get(apiUrl)
+    .then(displayTemperature)
+    .catch((error) => {
+      console.error("Error fetching weather data:", error);
+    });
+}
+
+// Event listener for form
+let searchForm = document.querySelector(".search-form");
 searchForm.addEventListener("submit", search);
 
-let currentDateELement = document.querySelector("#current-date");
+// Format and display the current date
+let currentDateElement = document.querySelector("#current-date");
 let currentDate = new Date();
-
-currentDateELement.innerHTML = formatDate(currentDate);
+currentDateElement.innerHTML = formatDate(currentDate);

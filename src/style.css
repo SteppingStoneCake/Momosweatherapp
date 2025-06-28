@@ -55,6 +55,7 @@ header {
   background-color: #c2185b; /* darker pink */
 }
 
+/* Weather Data Layout */
 .weather-app-data {
   display: flex;
   justify-content: space-between;
@@ -75,6 +76,19 @@ header {
   text-align: right;
 }
 
+.weather-app-city {
+  font-family: 'Delius', cursive;
+  font-size: 32px;
+  color: #007c91;
+  margin-bottom: 8px;
+}
+
+.weather-app-details {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
 .weather-app-icon {
   font-size: 64px;
   margin-bottom: 10px;
@@ -85,7 +99,6 @@ header {
   font-weight: bold;
   color: #e65100;
 }
-
 
 /* Footer - Pink Text */
 footer {
@@ -102,4 +115,14 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* Accessibility: hide label visually but keep for screen readers */
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
