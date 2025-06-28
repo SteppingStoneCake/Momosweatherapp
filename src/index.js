@@ -1,4 +1,6 @@
 function displayTemperature(response) {
+  console.log("API response:", response.data); // ✅ Debugging line
+
   let temperatureElement = document.querySelector("#current-temperature");
   let cityElement = document.querySelector("#current-city");
   let descriptionElement = document.querySelector("#description");
@@ -19,8 +21,6 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", description);
   humidityElement.innerHTML = `${humidity}%`;
   windElement.innerHTML = `${windSpeed} mph`;
-
-  console.log("Weather updated:", response.data);
 }
 
 function formatDate(date) {
@@ -52,24 +52,29 @@ function formatDate(date) {
 
 function search(event) {
   event.preventDefault();
-  let cityInput = document.querySelector("#city-search").value;
+
+  let cityInput = document.querySelector("#city-search").value.trim();
+  if (!cityInput) return;
 
   let apiKey = "b8e4c9bea5b1fcaco0bf15019t432341";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityInput}&key=${apiKey}&units=metric`;
+
+  console.log("Requesting:", apiUrl); // ✅ Debugging line
 
   axios
     .get(apiUrl)
     .then(displayTemperature)
     .catch((error) => {
       console.error("Error fetching weather data:", error);
+      alert("Sorry, we couldn't find that city. Please try again.");
     });
 }
 
-// Event listener for form
+// Attach event listener
 let searchForm = document.querySelector(".search-form");
 searchForm.addEventListener("submit", search);
 
-// Display current date on page load
+// Load initial date
 let currentDateElement = document.querySelector("#current-date");
 let currentDate = new Date();
 currentDateElement.innerHTML = formatDate(currentDate);
